@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: cmake .
-      - run: make -j
+      - run: cmake --build .
 
   macos:
     runs-on: macos-latest
@@ -26,5 +26,5 @@ jobs:
       - run: mkdir build && cd build
       - run: cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/android.cmake -DSJPEG_ANDROID_NDK_PATH=$ANDROID_NDK_LATEST_HOME
         working-directory: build
-      - run: make -j
+      - run: cmake --build .
         working-directory: build
